@@ -6,20 +6,24 @@ parser code {:
 	public static void main(String args[]) throws Exception {
 		SymbolFactory sf = new DefaultSymbolFactory();
 		if (args.length==0) new Parser(new Scanner(System.in,sf),sf).parse();
-		else new Parser(new Scanner(new java.io.FileInputStream(args[0]),sf),sf).parse();
+		else {new Parser(new Scanner(new java.io.FileInputStream(args[0]),sf),sf).parse();
+		System.out.println("Valid JSON file.");}
 	}
 :}
 
-terminal COMMA, LSQBRACKET, RSQBRACKET;
+/*terminal LCBRACKET, RBRACE, COMMA, COLON, QUOTES, LSQBRACKET, RSQBRACKET,*/
+
+
+terminal COMMA, LSQBRACKET, RSQBRACKET, LBRACE, RBRACE;
 terminal Integer NUMBER;
 
-non terminal array, value_list, value;
+non terminal array, object, value_list, value;
 non terminal Integer expr;
 
-array ::= LSQBRACKET value_list RSQBRACKET;
+array ::= LSQBRACKET value_list RSQBRACKET | LSQBRACKET RSQBRACKET;
 value_list ::= value_list COMMA value | value;
 
-value::= expr:e {: System.out.println(" value: "+e+""); :} ;
-expr      ::= NUMBER:n
-	   {: RESULT=n; :}
-	    ;
+object ::= LBRACE RBRACE;
+
+value::= expr;
+expr::= NUMBER;

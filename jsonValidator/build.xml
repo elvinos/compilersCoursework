@@ -10,7 +10,7 @@
   <property environment="env" />
 
   <!-- We rely on CUP-11a  JFlex 1.4.1  -->
-  
+
   <!-- Here compile time tools -->
   <path id="binaries">
     <pathelement location="${bin}" />
@@ -21,7 +21,7 @@
     <pathelement path="${java.class.path}" />
     <pathelement path="${classes}" />
   </path>
-  
+
   <!-- Here, the runtime libraries are stored -->
   <path id="libraries">
     <pathelement location="${lib}" />
@@ -33,14 +33,14 @@
   </path>
 
   <!-- We also use JFlex -->
-  <taskdef name="jflex" 
-           classname="JFlex.anttask.JFlexTask" 
-           classpath="${bin}/JFlex.jar" 
+  <taskdef name="jflex"
+           classname="JFlex.anttask.JFlexTask"
+           classpath="${bin}/JFlex.jar"
   />
-   
+
   <!-- We also use CUP-11a -->
-  <taskdef name="cup" 
-           classname="java_cup.anttask.CUPTask" 
+  <taskdef name="cup"
+           classname="java_cup.anttask.CUPTask"
            classpath="${bin}/java-cup-11a.jar"
   />
 
@@ -52,8 +52,8 @@
 
 
   <target name="cup" depends="init">
-    <cup srcfile="${cup}/Parser.cup" 
-         destdir="${java}" 
+    <cup srcfile="${cup}/Parser.cup"
+         destdir="${java}"
          interface="true"
 	 parser="Parser"
     />
@@ -62,7 +62,7 @@
   <target name="jflex" depends="init">
     <jflex file="${jflex}/Scanner.jflex" destdir="${java}" />
   </target>
-  
+
   <!-- copy manual edited sources to automatically generated ones -->
   <target name="copy_src" depends="jflex,cup">
    <copy todir="${java}">
@@ -71,7 +71,7 @@
   </target>
 
   <target name="compile" depends="copy_src">
-    <javac srcdir="${java}" destdir="${classes}">
+    <javac includeantruntime="false" srcdir="${java}" destdir="${classes}">
       <classpath refid="libraries" />
     </javac>
   </target>
@@ -113,7 +113,7 @@
 	  </junit>
   </target>
   -->
-  
+
   <target name="clean">
     <delete dir="${java}" />
     <delete dir="${classes}" />

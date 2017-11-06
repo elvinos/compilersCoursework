@@ -19,6 +19,8 @@ import java_cup.runtime.SymbolFactory;
 "," { return sf.newSymbol("Comma",sym.COMMA); }
 "[" { return sf.newSymbol("Left Square Bracket",sym.LSQBRACKET); }
 "]" { return sf.newSymbol("Right Square Bracket",sym.RSQBRACKET); }
+"}" { return sf.newSymbol("Right Brace",sym.RBRACE); }
+"{" { return sf.newSymbol("Left Brace",sym.LBRACE); }
 [0-9]+ { return sf.newSymbol("Integral Number",sym.NUMBER, new Integer(yytext())); }
 [ \t\r\n\f] { /* ignore white space. */ }
 . { System.err.println("Illegal character: "+yytext()); }
