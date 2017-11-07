@@ -11,15 +11,18 @@ parser code {:
 	}
 :}
 
-terminal COMMA, LSQBRACKET, RSQBRACKET, LBRACE, RBRACE, COLLON, STRING, TRUE, FALSE, NULL, NUMBER;
+terminal COMMA, LSQBRACKET, RSQBRACKET, LBRACE, RBRACE, COLLON,
+	STRING, TRUE, FALSE, NULL, NUMBER;
 
 non terminal array, object, value, elements, members, pair;
 
-object ::= LBRACE RBRACE | LBRACE members RBRACE;
-members ::= pair | pair COMMA members;
-pair ::= STRING COLLON value;
-
 value ::=  STRING | NUMBER | object | array | TRUE | FALSE | NULL;
 
+object ::= LBRACE RBRACE | LBRACE members RBRACE;
 array ::= LSQBRACKET RSQBRACKET | LSQBRACKET elements RSQBRACKET;
+
+members ::= pair | pair COMMA members;
+
+pair ::= STRING COLLON value;
+
 elements ::= value | value COMMA elements;
