@@ -1,11 +1,29 @@
-\section{JSON Lexer \& Parser}\label{json-lexer-parser}
-
-\subsection{Introduction}\label{introduction}
+\section{Introduction}\label{introduction}
 
 \section{Compiler Creation}\label{compiler-creation}
 
 \subsection{Scanner.jflex}\label{scanner.jflex}
 
+\emph{alex} Descriptions of systems - Choice for printing (print in
+executions or printed in injected Java as she had)
+
+\subsubsection{Macros}\label{macros}
+
+\emph{alex} - \emph{numbers} Choose to allow numbers to have an infinite
+number of zeros in front of them - Macros for number inline with the
+JSON.org specification for number
+
+\subsubsection{Tokens}\label{tokens}
+
+\emph{Claud} - Dealing with ambiguity - Token choices vs terminal/ non
+terminal
+
 \subsection{Parser.cup}\label{parser.cup}
 
-\section{Conculsions}\label{conculsions}
+\emph{Claud} - Starting symbol - context free grammar
+
+\subsection{Testing}\label{testing}
+
+\emph{alex}
+
+\section{Conclusions}\label{conclusions}

@@ -4,10 +4,15 @@ import java_cup.runtime.*;
 
 parser code {:
 	public static void main(String args[]) throws Exception {
+		try {
 		SymbolFactory sf = new DefaultSymbolFactory();
 		if (args.length==0) new Parser(new Scanner(System.in,sf),sf).parse();
 		else {new Parser(new Scanner(new java.io.FileInputStream(args[0]),sf),sf).parse();
 		System.out.println("Valid JSON file.");}
+	}
+	catch(Exception e){
+		System.exit(1); // Send error exit code to calling program
+	}
 	}
 :}
 
