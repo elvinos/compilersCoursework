@@ -5,29 +5,43 @@ import java_cup.runtime.*;
 parser code {:
 	public static void main(String args[]) throws Exception {
 		try {
-		SymbolFactory sf = new DefaultSymbolFactory();
-		if (args.length==0) new Parser(new Scanner(System.in,sf),sf).parse();
-		else {new Parser(new Scanner(new java.io.FileInputStream(args[0]),sf),sf).parse();
-				System.out.println("Valid JSON file.");}
-	}
-	catch(Exception e){
-			System.exit(1); // Send error exit code to calling program
-	}
+			SymbolFactory sf = new DefaultSymbolFactory();
+			if (args.length==0) new Parser(new Scanner(System.in,sf),sf).parse();
+			else {
+				new Parser(new Scanner(new java.io.FileInputStream(args[0]),sf),sf).parse();
+				System.out.println("Valid JSON file.");
+			}
+		} catch(Exception e) {
+				System.exit(1); // Send error exit code to calling program
+		}
 	}
 :}
 
-terminal COMMA, LSQBRACKET, RSQBRACKET, LBRACE, RBRACE, COLLON,
-	STRING, TRUE, FALSE, NULL, NUMBER;
+/*
+* SYMBOL LIST
+*/
 
-non terminal array, object, value, elements, members, pair;
+// Symbols relating to scanner tokens
+terminal COMMA, COLLON, LSQBRACKET, RSQBRACKET, LBRACE, RBRACE, TRUE, FALSE,
+	NULL, NUMBER, STRING;
+
+// Symbols relating to JSON.org specification
+non terminal value, object, members, pair, array, elements;
+
+/*
+* GRAMMAR
+*/
+
+// Declares non-terminal starting symbol from which all JSON can be formed
+start with value;
 
 value ::=  STRING | NUMBER | object | array | TRUE | FALSE | NULL;
 
+// JSON object grammar
 object ::= LBRACE RBRACE | LBRACE members RBRACE;
-array ::= LSQBRACKET RSQBRACKET | LSQBRACKET elements RSQBRACKET;
-
 members ::= pair | pair COMMA members;
-
 pair ::= STRING COLLON value;
 
+// JSON array grammar
+array ::= LSQBRACKET RSQBRACKET | LSQBRACKET elements RSQBRACKET;
 elements ::= value | value COMMA elements;
