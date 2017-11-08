@@ -27,8 +27,9 @@ import java_cup.runtime.SymbolFactory;
 // All Numbers
 digit = [0-9]
 digit1_9 = [1-9]
-integer = 0 | -?{digit1_9}{digit}*
-exponent = [eE][-+]?{digit}+
+nonZIntegr = -?{digit1_9}{digit}*
+integer = 0 | {nonZIntegr}
+exponent = [eE][-+]?{nonZIntegr}+
 fraction = \.{digit}+
 number = {integer}{fraction}?{exponent}?
 
