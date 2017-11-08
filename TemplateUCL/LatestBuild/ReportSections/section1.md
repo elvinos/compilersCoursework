@@ -21,7 +21,7 @@ The forms of these structures were used to create the list of regular expression
 - **Number:** All numbers are defined as an integer which can then be followed by a fraction (decimal number), exponent (scientific notation) or both. The rules for a number are:
     - An integer must either be equal to zero or start with a non-zero digit
     - An integer can be negative using the *-* sign where positive is donated using no sign
-    - An exponent can either be *e* or *E* followed where a sign can be used
+    - An exponent can either be *e* or *E* followed by an integer with a leading sign. In the JSON documentation \cite{JSON95:online} it is unclear wether an exponent is allowed to have unlimited leading zeros.
     - fraction always follows an integer and can be any digit
 - **Strings and Characters:** All characters are converted into strings, surrounding the character (or list of characters) in quotation marks. Characters are made up of:
     - *Unicode Characters*: Allows any unicode character except **\\\ ** or "
@@ -42,6 +42,6 @@ Sequence of characters that forms a unit in the grammar of the programming langu
 ## Testing
 *alex*
 
-In order to fully test the JSON validator 
+In order to fully test the JSON validator a range of different JSON input files were required.
 
 # Conclusions

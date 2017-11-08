@@ -1,12 +1,13 @@
 package Example;
 
 import java_cup.runtime.SymbolFactory;
+import java.lang.Exception;
 %%
 /*cup directive sets a number of options, which makes the class suitable
- for use with CUP.*/
+ for use with CUP*/
 %cup
 /*The %unicode directive makes the lexical analyser use full UNICODE characters.
- The single byte default is only provided for compatibility with JLex.*/
+ The single byte default is only provided for compatibility with JFLex*/
 %unicode
 %class Scanner
 %{
@@ -27,9 +28,8 @@ import java_cup.runtime.SymbolFactory;
 // All Numbers
 digit = [0-9]
 digit1_9 = [1-9]
-nonZIntegr = -?{digit1_9}{digit}*
-integer = 0 | {nonZIntegr}
-exponent = [eE][-+]?{nonZIntegr}+
+integer = 0 | -?{digit1_9}{digit}*
+exponent = [eE][-+]?{digit}+
 fraction = \.{digit}+
 number = {integer}{fraction}?{exponent}?
 
@@ -70,4 +70,6 @@ string = \"{char}*\"
 [ \t\r\n\f] { /* ignore white space. */ }
 
 //Prints the line where the illegal character is found.
-. { System.err.println("Illegal character: "+ yytext() + "\nLine: " + (yyline + 1)); }
+/*. { throw new Error("Illegal character: "+ yytext() + "Line: " + (yyline + 1)); }*/
+/*. { System.err.println("Illegal character: "+ yytext() + "\nLine: " + (yyline + 1)); }*/
+. { throw new Error("Illegal character: "+ yytext() + "\nLine: " + (yyline + 1));}

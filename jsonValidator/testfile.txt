@@ -1,0 +1,330 @@
+JSON Pass Tests:
+
+Tests/Pass/pass1.json [✓]
+
+{"abc":{"EFG":["y", 5, 5.01, 5.12e+12, 5.1e+12, -12.123121231, 50, 12.12312 , "\b", "", "\t", true, ""]}}
+
+Tests/Pass/pass2.json [✓]
+
+{
+    "glossary": {
+        "title": "example glossary",
+		"GlossDiv": {
+            "title": "S",
+			"GlossList": {
+                "GlossEntry": {
+                    "ID": "SGML",
+					"SortAs": "SGML",
+					"GlossTerm": "Standard Generalized Markup Language",
+					"Acronym": "SGML",
+					"Abbrev": "ISO 8879:1986",
+					"GlossDef": {
+                        "para": "A meta-markup language, used to create markup languages such as DocBook.",
+						"GlossSeeAlso": ["GML", "XML"]
+                    },
+					"GlossSee": "markup"
+                }
+            }
+        }
+    }
+}
+
+Tests/Pass/pass3.json [✓]
+
+{"menu": {
+  "id": "file",
+  "value": "File",
+  "popup": {
+    "menuitem": [
+      {"value": "New", "onclick": "CreateNewDoc()"},
+      {"value": "Open", "onclick": "OpenDoc()"},
+      {"value": "Close", "onclick": "CloseDoc()"}
+    ]
+  }
+}}
+
+Tests/Pass/pass4.json [✓]
+
+{"widget": {
+    "debug": "on",
+    "window": {
+        "title": "Sample Konfabulator Widget",
+        "name": "main_window",
+        "width": 500,
+        "height": 500
+    },
+    "image": {
+        "src": "Images/Sun.png",
+        "name": "sun1",
+        "hOffset": 250,
+        "vOffset": 250,
+        "alignment": "center"
+    },
+    "text": {
+        "data": "Click Here",
+        "size": 36,
+        "style": "bold",
+        "name": "text1",
+        "hOffset": 250,
+        "vOffset": 100,
+        "alignment": "center",
+        "onMouseUp": "sun1.opacity = (sun1.opacity / 100) * 90;"
+    }
+}}
+
+Tests/Pass/pass5.json [✓]
+
+{"web-app": {
+  "servlet": [
+    {
+      "servlet-name": "cofaxCDS",
+      "servlet-class": "org.cofax.cds.CDSServlet",
+      "init-param": {
+        "configGlossary:installationAt": "Philadelphia, PA",
+        "configGlossary:adminEmail": "ksm@pobox.com",
+        "configGlossary:poweredBy": "Cofax",
+        "configGlossary:poweredByIcon": "/images/cofax.gif",
+        "configGlossary:staticPath": "/content/static",
+        "templateProcessorClass": "org.cofax.WysiwygTemplate",
+        "templateLoaderClass": "org.cofax.FilesTemplateLoader",
+        "templatePath": "templates",
+        "templateOverridePath": "",
+        "defaultListTemplate": "listTemplate.htm",
+        "defaultFileTemplate": "articleTemplate.htm",
+        "useJSP": false,
+        "jspListTemplate": "listTemplate.jsp",
+        "jspFileTemplate": "articleTemplate.jsp",
+        "cachePackageTagsTrack": 200,
+        "cachePackageTagsStore": 200,
+        "cachePackageTagsRefresh": 60,
+        "cacheTemplatesTrack": 100,
+        "cacheTemplatesStore": 50,
+        "cacheTemplatesRefresh": 15,
+        "cachePagesTrack": 200,
+        "cachePagesStore": 100,
+        "cachePagesRefresh": 10,
+        "cachePagesDirtyRead": 10,
+        "searchEngineListTemplate": "forSearchEnginesList.htm",
+        "searchEngineFileTemplate": "forSearchEngines.htm",
+        "searchEngineRobotsDb": "WEB-INF/robots.db",
+        "useDataStore": true,
+        "dataStoreClass": "org.cofax.SqlDataStore",
+        "redirectionClass": "org.cofax.SqlRedirection",
+        "dataStoreName": "cofax",
+        "dataStoreDriver": "com.microsoft.jdbc.sqlserver.SQLServerDriver",
+        "dataStoreUrl": "jdbc:microsoft:sqlserver://LOCALHOST:1433;DatabaseName=goon",
+        "dataStoreUser": "sa",
+        "dataStorePassword": "dataStoreTestQuery",
+        "dataStoreTestQuery": "SET NOCOUNT ON;select test='test';",
+        "dataStoreLogFile": "/usr/local/tomcat/logs/datastore.log",
+        "dataStoreInitConns": 10,
+        "dataStoreMaxConns": 100,
+        "dataStoreConnUsageLimit": 100,
+        "dataStoreLogLevel": "debug",
+        "maxUrlLength": 500}},
+    {
+      "servlet-name": "cofaxEmail",
+      "servlet-class": "org.cofax.cds.EmailServlet",
+      "init-param": {
+      "mailHost": "mail1",
+      "mailHostOverride": "mail2"}},
+    {
+      "servlet-name": "cofaxAdmin",
+      "servlet-class": "org.cofax.cds.AdminServlet"},
+
+    {
+      "servlet-name": "fileServlet",
+      "servlet-class": "org.cofax.cds.FileServlet"},
+    {
+      "servlet-name": "cofaxTools",
+      "servlet-class": "org.cofax.cms.CofaxToolsServlet",
+      "init-param": {
+        "templatePath": "toolstemplates/",
+        "log": 1,
+        "logLocation": "/usr/local/tomcat/logs/CofaxTools.log",
+        "logMaxSize": "",
+        "dataLog": 1,
+        "dataLogLocation": "/usr/local/tomcat/logs/dataLog.log",
+        "dataLogMaxSize": "",
+        "removePageCache": "/content/admin/remove?cache=pages&id=",
+        "removeTemplateCache": "/content/admin/remove?cache=templates&id=",
+        "fileTransferFolder": "/usr/local/tomcat/webapps/content/fileTransferFolder",
+        "lookInContext": 1,
+        "adminGroupID": 4,
+        "betaServer": true}}],
+  "servlet-mapping": {
+    "cofaxCDS": "/",
+    "cofaxEmail": "/cofaxutil/aemail/*",
+    "cofaxAdmin": "/admin/*",
+    "fileServlet": "/static/*",
+    "cofaxTools": "/tools/*"},
+
+  "taglib": {
+    "taglib-uri": "cofax.tld",
+    "taglib-location": "/WEB-INF/tlds/cofax.tld"}}}
+
+Tests/Pass/pass6.json [✓]
+
+{"menu": {
+    "header": "SVG Viewer",
+    "items": [
+        {"id": "Open"},
+        {"id": "OpenNew", "label": "Open New"},
+        null,
+        {"id": "ZoomIn", "label": "Zoom In"},
+        {"id": "ZoomOut", "label": "Zoom Out"},
+        {"id": "OriginalView", "label": "Original View"},
+        null,
+        {"id": "Quality"},
+        {"id": "Pause"},
+        {"id": "Mute"},
+        null,
+        {"id": "Find", "label": "Find..."},
+        {"id": "FindAgain", "label": "Find Again"},
+        {"id": "Copy"},
+        {"id": "CopyAgain", "label": "Copy Again"},
+        {"id": "CopySVG", "label": "Copy SVG"},
+        {"id": "ViewSVG", "label": "View SVG"},
+        {"id": "ViewSource", "label": "View Source"},
+        {"id": "SaveAs", "label": "Save As"},
+        null,
+        {"id": "Help"},
+        {"id": "About", "label": "About Adobe CVG Viewer..."}
+    ]
+}}
+
+-------------------------------
+JSON Fail Tests:
+
+Tests/Fail/fail1.json [✓]
+
+[0012.21]
+
+Tests/Fail/fail10.json [✓]
+
+{"Extra value after close": true} "misplaced quoted value"
+
+Tests/Fail/fail11.json [✓]
+
+{"Illegal expression": 1 + 2}
+
+Tests/Fail/fail12.json [✓]
+
+{"Illegal invocation": alert()}
+
+Tests/Fail/fail13.json [✓]
+
+{"Numbers cannot have leading zeroes": 013}
+
+Tests/Fail/fail14.json [✓]
+
+{"Numbers cannot be hex": 0x14}
+
+Tests/Fail/fail15.json [✓]
+
+["Illegal backslash escape: \x15"]
+
+Tests/Fail/fail16.json [✓]
+
+[\naked]
+
+Tests/Fail/fail17.json [✓]
+
+["Illegal backslash escape: \017"]
+
+Tests/Fail/fail19.json [✓]
+
+{"Missing colon" null}
+
+Tests/Fail/fail2.json [✓]
+
+["Unclosed array"
+
+Tests/Fail/fail20.json [✓]
+
+{"Double colon":: null}
+
+Tests/Fail/fail21.json [✓]
+
+{"Comma instead of colon", null}
+
+Tests/Fail/fail22.json [✓]
+
+["Colon instead of comma": false]
+
+Tests/Fail/fail23.json [✓]
+
+["Bad value", truth]
+
+Tests/Fail/fail24.json [✓]
+
+['single quote']
+
+Tests/Fail/fail25.json [✓]
+
+["	tab	character	in	string	"]
+
+Tests/Fail/fail26.json [✓]
+
+["tab\   character\   in\  string\  "]
+
+Tests/Fail/fail27.json [✓]
+
+["line
+break"]
+
+Tests/Fail/fail28.json [✓]
+
+["line\
+break"]
+
+Tests/Fail/fail29.json [✓]
+
+[0e]
+
+Tests/Fail/fail3.json [✓]
+
+{unquoted_key: "keys must be quoted"}
+
+Tests/Fail/fail30.json [✓]
+
+[0e+]
+
+Tests/Fail/fail31.json [✓]
+
+[0e+-1]
+
+Tests/Fail/fail32.json [✓]
+
+{"Comma instead if closing brace": true,
+
+Tests/Fail/fail33.json [✓]
+
+["mismatch"}
+
+Tests/Fail/fail4.json [✓]
+
+["extra comma",]
+
+Tests/Fail/fail5.json [✓]
+
+["double extra comma",,]
+
+Tests/Fail/fail6.json [✓]
+
+[   , "<-- missing value"]
+
+Tests/Fail/fail7.json [✓]
+
+["Comma after the close"],
+
+Tests/Fail/fail8.json [✓]
+
+["Extra close"]]
+
+Tests/Fail/fail9.json [✓]
+
+{"Extra comma": true,}
+
+-------------------------------
+38 of 38 tests passed
