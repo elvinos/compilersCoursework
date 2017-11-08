@@ -2,7 +2,11 @@ package Example;
 
 import java_cup.runtime.SymbolFactory;
 %%
+/*cup directive sets a number of options, which makes the class suitable
+ for use with CUP.*/
 %cup
+/*The %unicode directive makes the lexical analyser use full UNICODE characters.
+ The single byte default is only provided for compatibility with JLex.*/
 %unicode
 %class Scanner
 %{
