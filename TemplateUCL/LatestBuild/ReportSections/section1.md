@@ -16,21 +16,17 @@ In order to create a comprehensive list of regular expressions for JSON, the JSO
 - A collection of name or value pairs
 - An ordered list of value
 
-The forms of these structures were used to create the list of regular expressions. Macros were used to break down and generalise regular expressions, making them both readable and simple. The REGEX language is used to  The following macros and a description of their definition is given
-
+The forms of these structures were used to create the list of regular expressions. Macros were used to break down and generalise regular expressions, making them both readable and simple. The REGEX language is used to keep syntax simple and encapsulate the regular expressions. The following macros and a description of their definition is given:
 
 - **Number:** All numbers are defined as an integer which can then be followed by a fraction (decimal number), exponent (scientific notation) or both. The rules for a number are:
-  - An integer must either be equal to zero or start with a non-zero digit
-  - An integer can be negative using the *-* sign where positive is donated using no sign
-  - An exponent can either be *e* or *E* followed where a sign can be used
-  - fraction always follows an integer and can be any digit
+    - An integer must either be equal to zero or start with a non-zero digit
+    - An integer can be negative using the *-* sign where positive is donated using no sign
+    - An exponent can either be *e* or *E* followed where a sign can be used
+    - fraction always follows an integer and can be any digit
 - **Strings and Characters:** All characters are converted into strings, surrounding the character (or list of characters) in quotation marks. Characters are made up of:
-  - *Unicode Characters*: Allows any unicode character except **\ or "**
-  - *Escape Characters*: These are the control characters made up of \\ \" \/ \b \f \n \r \t
-  - *Unicode Numbers*: These are numbers made up of \u followed be
-
-
-- Choice for printing (print in executions or printed in injected Java as she had)
+    - *Unicode Characters*: Allows any unicode character except **\\\ ** or "
+    - *Escape Characters*: These are the control characters made up of \\\ \\" \\/ \\b \\f \\n \\r \\t
+    - *Unicode Numbers*: These are numbers made up of \u followed by four hex digits.
 
 ### Tokens
 *Claud
@@ -45,5 +41,7 @@ Sequence of characters that forms a unit in the grammar of the programming langu
 
 ## Testing
 *alex*
+
+In order to fully test the JSON validator 
 
 # Conclusions

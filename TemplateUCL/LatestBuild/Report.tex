@@ -412,6 +412,9 @@
 
 \section{Compiler Creation}\label{compiler-creation}
 
+The objective of the project was to create a lexer and parser for JSON
+(JavaScript Object Notation) using JFlex and CUP.
+
 \subsection{\texorpdfstring{Scanner.jflex - \emph{Lexical
 Analysis}}{Scanner.jflex - Lexical Analysis}}\label{scanner.jflex---lexical-analysis}
 
@@ -431,14 +434,60 @@ text. The JFlex lexical analyser will then execute a method to assign
 tokens, looping through the input file to match against regular
 expressions \cite{lexicalAna}.
 
-\emph{alex} Descriptions of systems - Choice for printing (print in
-executions or printed in injected Java as she had)
-
 \subsubsection{Macros}\label{macros}
 
-\emph{alex} - \emph{numbers} Choose to allow numbers to have an infinite
-number of zeros in front of them - Macros for number inline with the
-JSON.org specification for number
+In order to create a comprehensive list of regular expressions for JSON,
+the JSON.org \cite{JSON95:online} documentation was used. JSON is built
+on two universal data structures: - A collection of name or value pairs
+- An ordered list of value
+
+The forms of these structures were used to create the list of regular
+expressions. Macros were used to break down and generalise regular
+expressions, making them both readable and simple. The REGEX language is
+used to keep syntax simple and encapsulate the regular expressions. The
+following macros and a description of their definition is given
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Number:} All numbers are defined as an integer which can then
+  be followed by a fraction (decimal number), exponent (scientific
+  notation) or both. The rules for a number are:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    An integer must either be equal to zero or start with a non-zero
+    digit
+  \item
+    An integer can be negative using the \emph{-} sign where positive is
+    donated using no sign
+  \item
+    An exponent can either be \emph{e} or \emph{E} followed where a sign
+    can be used
+  \item
+    fraction always follows an integer and can be any digit
+  \end{itemize}
+\item
+  \textbf{Strings and Characters:} All characters are converted into
+  strings, surrounding the character (or list of characters) in
+  quotation marks. Characters are made up of:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \emph{Unicode Characters}: Allows any unicode character except
+    \textbf{\textbackslash{}~} or "
+  \item
+    \emph{Escape Characters}: These are the control characters made up
+    of \textbackslash{}~\textbackslash{}" \textbackslash{}/
+    \textbackslash{}b \textbackslash{}f \textbackslash{}n
+    \textbackslash{}r \textbackslash{}t
+  \item
+    \emph{Unicode Numbers}: These are numbers made up of \u followed by
+    four hex digits.
+  \end{itemize}
+\end{itemize}
 
 \subsubsection{Tokens}\label{tokens}
 
